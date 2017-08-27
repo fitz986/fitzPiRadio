@@ -12,7 +12,7 @@ b1Pin = 11
 b2Pin = 13
 b3Pin = 15
 b4Pin = 16
-b5Pin = 18 
+b5Pin = 3 
 servoPin = 22
 ledPin = 7
 SPICLK = 23
@@ -22,7 +22,7 @@ SPICS = 24
 
 GPIO.setmode(GPIO.BOARD)
 
-#sets up servo, pushbuttons, LED, & SPI
+#sets up servo, pushbuttons, LED, & SPI pins
 GPIO.setup(servoPin, GPIO.OUT)
 GPIO.setup(b1Pin, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(b2Pin, GPIO.IN, pull_up_down = GPIO.PUD_UP)
