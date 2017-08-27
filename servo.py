@@ -182,8 +182,8 @@ def on_button(button):
 		subprocess.call(string, shell=True)
 		subprocess.call('mpc play', shell=True)
 	elif button ==5:
-		print "Spotify mode"
-		move(180)
+		print "Shutting down"
+		subprocess.call(['shutdown', '-h', 'now'], shell=False)
 		GPIO.output(ledPin, True)
 	else:
 		print "no buttons pressed, stopping music"
