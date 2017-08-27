@@ -12,7 +12,7 @@ b1Pin = 11
 b2Pin = 13
 b3Pin = 15
 b4Pin = 16
-b5Pin = 3 
+b5Pin =5
 servoPin = 22
 ledPin = 7
 SPICLK = 23
@@ -183,7 +183,7 @@ def on_button(button):
 		subprocess.call('mpc play', shell=True)
 	elif button ==5:
 		print "Shutting down"
-		subprocess.call(['shutdown', '-h', 'now'], shell=False)
+		subprocess.call(['sudo', 'shutdown', '-h', 'now'], shell=False)
 		GPIO.output(ledPin, True)
 	else:
 		print "no buttons pressed, stopping music"
