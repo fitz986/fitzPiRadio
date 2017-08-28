@@ -171,7 +171,7 @@ def on_button(button):
 	elif button == 3:	
 		print "Playing KQED"
 		move(90)
-		url = 'http://kqed.ice.lbdns-streamguys.com/kqedradio'
+		url = 'https://streams2.kqed.org/kqedradio'
 		string = 'mpc add '+ url
 		subprocess.call('mpc clear', shell=True)
 		subprocess.call(string, shell=True)
