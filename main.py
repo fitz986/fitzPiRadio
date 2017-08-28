@@ -169,9 +169,13 @@ def on_button(button):
 		subprocess.call('mpc play', shell=True)
 		
 	elif button == 3:	
-		print "Playing nothing"
-		GPIO.output(ledPin, True)
+		print "Playing KQED"
 		move(90)
+		url = 'https://streams.kqed.org/kqedradio.m3u'
+		string = 'mpc add '+ url
+		subprocess.call('mpc clear', shell=True)
+		subprocess.call(string, shell=True)
+		subprocess.call('mpc play', shell=True)
 		
 	elif button == 4:
 		print "button 4"
@@ -211,5 +215,4 @@ while True:
 	pot_status, current_read = check_volume(trim_pot_changed, last_read)
 	trim_pot_changed = pot_status
 	last_read = current_read
-	print current_read
 	time.sleep (1)
