@@ -206,6 +206,8 @@ last_read = 0       # this keeps track of the last potentiometer value
 # to keep from being jittery we'll only change
 trim_pot_changed = False 
 
+#counter to shutdown if volume low for certain threshold
+count = 0
 		
 while True:
 	button = get_button() #check which button is pressed
@@ -214,5 +216,12 @@ while True:
 	last_button = button
 	pot_status, current_read = check_volume(trim_pot_changed, last_read)
 	trim_pot_changed = pot_status
+	vol = 100 - current_read/10.23
+	if vol < 5:
+	    count += 1
+	else:
+	    count = 0
+	if count >=300:
+	    subprocess.call(['sudo', 'shutdown', '-h', 'now'], shell=False)
 	last_read = current_read
 	time.sleep (1)
