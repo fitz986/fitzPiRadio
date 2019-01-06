@@ -71,7 +71,7 @@ def readadc(adcnum, clockpin, mosipin, misopin, cspin):
 
 def check_volume(trim_pot_changed, last_read):
 	DEBUG = 0
-	tolerance =50
+	tolerance =25
 	# read the analog pin
 	trim_pot = readadc(potentiometer_adc, SPICLK, SPIMOSI, SPIMISO, SPICS)
 	pot_adjust = abs(trim_pot - last_read)
